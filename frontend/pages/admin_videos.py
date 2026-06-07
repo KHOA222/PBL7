@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from utils import api_url, auth_headers, get_username
+from utils import api_url, auth_headers, get_username, video_player_url
 
 def admin_videos_page():
     st.markdown('<h1 class="gradient-title" style="margin-top: 2rem; margin-bottom: 2rem; text-align: left;">🎬 Quản lý Video</h1>', unsafe_allow_html=True)
@@ -22,7 +22,7 @@ def admin_videos_page():
             c_left, c_right = st.columns([1.5, 1.5], gap="medium")
             
             with c_left:
-                st.video(api_url(v["video_url"]))
+                st.video(video_player_url(v["video_url"]))
                 
             with c_right:
                 st.markdown(f"""

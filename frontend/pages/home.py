@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import html
-from utils import api_url, auth_headers, get_username, format_datetime
+from utils import api_url, auth_headers, get_username, format_datetime, video_player_url
 
 def home_page():
     st.markdown('<h1 class="gradient-title" style="margin-top: 2rem; margin-bottom: 2rem;">Bảng tin Video</h1>', unsafe_allow_html=True)
@@ -88,7 +88,7 @@ def home_page():
                         
                         with c_left:
                             # Video Player
-                            video_url = api_url(video["video_url"])
+                            video_url = video_player_url(video["video_url"])
                             st.video(video_url)
                             
                             # AI Caption Button inside Left column (if not revealed yet)

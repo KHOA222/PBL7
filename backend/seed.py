@@ -22,16 +22,16 @@ USERS = [
 ]
 
 VIDEOS = [
-    {"title": "Mèo chơi đùa",       "description": "Clip hài hước về mèo",        "hashtags": "#meo #cute",      "caption": "A cat is playing with a ball of yarn"},
-    {"title": "Hoàng hôn biển",      "description": "Cảnh hoàng hôn tuyệt đẹp",    "hashtags": "#sunset #bien",   "caption": "The sun sets over the ocean horizon"},
-    {"title": "Nấu phở bò",          "description": "Hướng dẫn nấu phở truyền thống","hashtags": "#cooking #pho",  "caption": "A person is cooking beef noodle soup"},
-    {"title": "Chạy marathon",        "description": "Khoảnh khắc về đích",         "hashtags": "#sport #run",     "caption": "Runners crossing the marathon finish line"},
-    {"title": "Du lịch Đà Lạt",      "description": "Vlog một ngày ở Đà Lạt",      "hashtags": "#travel #dalat",  "caption": "A person explores a misty mountain town"},
-    {"title": "Học guitar acoustic",  "description": "Tutorial hợp âm cơ bản",      "hashtags": "#music #guitar",  "caption": "Hands playing chords on an acoustic guitar"},
-    {"title": "Thác Bản Giốc",        "description": "Cảnh thác nước hùng vĩ",      "hashtags": "#nature #waterfall","caption": "A large waterfall surrounded by green forest"},
-    {"title": "Đua xe đạp địa hình",  "description": "MTB trail Tà Xùa",            "hashtags": "#sport #mtb",     "caption": "A cyclist rides down a mountain trail"},
-    {"title": "Cà phê sáng Hà Nội",   "description": "V văn hóa cà phê trứng",       "hashtags": "#food #coffee",   "caption": "A cup of egg coffee on a wooden table"},
-    {"title": "Pháo hoa Tết 2025",    "description": "Khoảnh khắc giao thừa",       "hashtags": "#tet #fireworks", "caption": "Colorful fireworks light up the night sky"},
+    {"title": "Trải nghiệm lái xe Audi", "description": "Đánh giá thực tế lái xe Audi trên đường nông thôn yên bình", "hashtags": "#audi #xehoi #car #driving", "caption": "A man driving a black Audi car on the road"},
+    {"title": "Hướng dẫn nấu ăn trong bếp", "description": "Công thức chế biến tôm và gia vị xào thơm ngon trong nồi lớn", "hashtags": "#cooking #monan #recipe #kitchen", "caption": "A woman is adding ingredients and cooking in a pot on the stove"},
+    {"title": "Đánh giá dụng cụ sửa xe", "description": "Hướng dẫn cách kiểm tra rò rỉ buồng đốt động cơ xe hơi bằng dụng cụ chuyên dụng", "hashtags": "#suaxe #tools #carrepair #oto", "caption": "A man is explaining how to use a combustion leak tester for car repair"},
+    {"title": "Cảnh mở cửa trong game", "description": "Khoảnh khắc mở cánh cửa lớn đầy ánh sáng huyền ảo trong trò chơi điện tử", "hashtags": "#gaming #videogame #door #fantasy", "caption": "A big door is opening with a bright light flashing in a video game"},
+    {"title": "Trò chuyện hài hước về lông mày", "description": "Cuộc tranh luận vui vẻ giữa một cặp đôi về việc có cần lông mày hay không", "hashtags": "#fun #talkshow #comedy #longmay", "caption": "A man is joking and talking to a woman about eyebrows"},
+    {"title": "Mèo chơi đùa với đồ chơi em bé", "description": "Chú mèo ngộ nghĩnh đang nghịch ngợm các món đồ chơi trên ghế nhún của trẻ em", "hashtags": "#cat #meo #babytoy #cute", "caption": "A cat is playing with a baby's toy on a bouncy chair"},
+    {"title": "Khỉ và mèo chơi cùng nhau", "description": "Khoảnh khắc đáng yêu khi chú khỉ con đùa nghịch thân thiện cùng bạn mèo", "hashtags": "#monkey #cat #pet #dongvat #cute", "caption": "A monkey and a cat are playing together"},
+    {"title": "Chó và mèo ăn chung khay", "description": "Tình bạn hòa thuận giữa chú chó đen trắng và chú mèo kem khi cùng ăn chung một đĩa thức ăn tự làm", "hashtags": "#dogandcat #pet #anchung #dog #cat", "caption": "A dog and a cat are eating food out of the same bowl together"},
+    {"title": "Vlog trò chuyện trên ghế xoay", "description": "Vlogger ngồi chia sẻ suy nghĩ và đọc từ sổ tay trên chiếc ghế xoay văn phòng", "hashtags": "#vlog #sharing #swivelchair #talk", "caption": "A man in a grey sweatshirt is sitting and talking to the camera in a swivel chair"},
+    {"title": "Phỏng vấn truyền hình thời sự", "description": "Đoạn phỏng vấn chính khách thảo luận về các vấn đề xã hội Châu Phi trên sóng truyền hình", "hashtags": "#interview #news #thoisu #television", "caption": "A man is being interviewed on a television news program"},
 ]
 
 def main():
@@ -111,7 +111,7 @@ def main():
         cr2 = CaptionReview(
             video_id=video_objs[1].id,
             ai_caption=video_objs[1].caption,
-            corrected_caption="Hoàng hôn buông xuống chân trời đại dương bao la màu tím hồng",
+            corrected_caption="Người phụ nữ đang thêm nguyên liệu và xào nấu thức ăn trong nồi trên bếp lò",
             status="approved",
             reviewed_by=admin_user.id,
             reviewed_at=datetime.utcnow()
@@ -133,13 +133,13 @@ def main():
         td1 = TrainingDataset(
             video_id=video_objs[1].id,
             caption_review_id=2,
-            caption_text="Hoàng hôn buông xuống chân trời đại dương bao la màu tím hồng",
+            caption_text="Người phụ nữ đang thêm nguyên liệu và xào nấu thức ăn trong nồi trên bếp lò",
             status="active"
         )
         td2 = TrainingDataset(
             video_id=video_objs[3].id,
             caption_review_id=None,
-            caption_text="Vận động viên điền kinh vượt qua vạch đích chạy marathon",
+            caption_text="Cánh cửa lớn mở ra và ánh sáng rực rỡ tỏa ra từ bên trong",
             status="active"
         )
         db.add_all([td1, td2])

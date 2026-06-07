@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import html
-from utils import api_url, auth_headers, get_username, format_datetime
+from utils import api_url, auth_headers, get_username, format_datetime, video_player_url
 
 def video_detail_page():
     if "selected_video_id" not in st.session_state or not st.session_state.selected_video_id:
@@ -42,7 +42,7 @@ def video_detail_page():
 
     with c_left:
         # Large Player
-        st.video(api_url(video["video_url"]))
+        st.video(video_player_url(video["video_url"]))
         
         # User details card below video
         st.markdown(f"""

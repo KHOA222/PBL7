@@ -13,6 +13,15 @@ def auth_headers():
 def api_url(path: str) -> str:
     return f"{BACKEND_URL}{path}"
 
+def video_player_url(path: str) -> str:
+    browser_url = os.getenv("BROWSER_BACKEND_URL")
+    if browser_url:
+        return f"{browser_url}{path}"
+    url = api_url(path)
+    if "://backend:" in url:
+        return url.replace("://backend:", "://localhost:")
+    return url
+
 def get_username(user_id):
     if "token" in st.session_state and st.session_state.token and not st.session_state.users_map:
         try:

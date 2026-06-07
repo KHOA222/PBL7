@@ -243,7 +243,11 @@ class CaptionEngine:
     def _load_vocab(self):
         vocab_path = Path(self.cfg["vocab"]["vocab_pkl"])
         if not vocab_path.exists():
-            raise FileNotFoundError(f"vocab.pkl không tìm thấy: {vocab_path}")
+            fallback_path = Path(__file__).parent / "checkpoints" / "vocab.pkl"
+            if fallback_path.exists():
+                vocab_path = fallback_path
+            else:
+                raise FileNotFoundError(f"vocab.pkl không tìm thấy tại: {vocab_path} hoặc {fallback_path}")
         with open(vocab_path, "rb") as f:
             vocab = pickle.load(f)
         self.idx2word   = vocab["idx2word"]
@@ -252,7 +256,11 @@ class CaptionEngine:
     def _load_model(self):
         ckpt_path = Path(self.cfg["inference_paths"]["checkpoint"])
         if not ckpt_path.exists():
-            raise FileNotFoundError(f"Checkpoint không tìm thấy: {ckpt_path}")
+            fallback_path = Path(__file__).parent / "checkpoints" / "best_model.pt"
+            if fallback_path.exists():
+                ckpt_path = fallback_path
+            else:
+                raise FileNotFoundError(f"Checkpoint không tìm thấy tại: {ckpt_path} hoặc {fallback_path}")
         self.model = VideoCaptionModel(self.cfg, self.vocab_size).to(self.device)
         ckpt = torch.load(ckpt_path, map_location=self.device, weights_only=False)
         self.model.load_state_dict(ckpt["model"])

@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from utils import api_url, auth_headers
+from utils import api_url, auth_headers, video_player_url
 
 def profile_page():
     st.markdown('<h1 class="gradient-title" style="margin-top: 2rem; margin-bottom: 2rem;">Trang cá nhân</h1>', unsafe_allow_html=True)
@@ -82,7 +82,7 @@ def profile_page():
                                     st.markdown(f'<p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.8rem;">{short_desc}</p>', unsafe_allow_html=True)
                                 
                                 # Video Player (Medium size)
-                                video_url = api_url(v["video_url"])
+                                video_url = video_player_url(v["video_url"])
                                 st.video(video_url)
                                 
                                 # AI Caption Box
