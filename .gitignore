@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Databases
+*.db
+*.sqlite3
+
+# Uploaded files
+uploads/
+backend/uploads/
+video2text-service/uploads/
+
+# IDE files
+.idea/
+.vscode/
+
+# Streamlit
+.session.json
+.streamlit/config.toml
+
+# OS files
+.DS_Store
