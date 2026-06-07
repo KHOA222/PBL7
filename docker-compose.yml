@@ -13,13 +13,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=sqlite:///./video_social.db
+      - DATABASE_URL=sqlite:////app/db/video_social.db
       - JWT_SECRET_KEY=change-me
       - VIDEO2TEXT_URL=http://video2text:8001
       - UPLOAD_DIR=uploads
     volumes:
       - ./backend/uploads:/app/uploads
-      - ./backend/video_social.db:/app/video_social.db
+      - ./backend/db:/app/db
     depends_on:
       - video2text
 
